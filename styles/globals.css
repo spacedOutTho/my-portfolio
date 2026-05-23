@@ -399,3 +399,229 @@ footer {
   color: var(--dark);
   pointer-events: none;
 }
+
+/* ════════════════════════════════
+   HOMEPAGE — LOBBY
+   ════════════════════════════════ */
+
+.lobby {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 120px 60px 80px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Suptilni rose gradient u pozadini */
+.lobby::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    rgba(232, 196, 184, 0.35) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+/* ─── Gornji label ─── */
+.lobby-top-label {
+  position: absolute;
+  top: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+/* ─── Animirani okvir oko naslova ─── */
+.lobby-frame {
+  position: absolute;
+  inset: 50%;
+  pointer-events: none;
+  transition: inset 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.lobby-frame--visible {
+  inset: 15%;
+}
+.lobby-frame-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--gold);
+  border-style: solid;
+  opacity: 0.5;
+}
+.lobby-frame-corner--tl {
+  top: 0; left: 0;
+  border-width: 1px 0 0 1px;
+}
+.lobby-frame-corner--tr {
+  top: 0; right: 0;
+  border-width: 1px 1px 0 0;
+}
+.lobby-frame-corner--bl {
+  bottom: 0; left: 0;
+  border-width: 0 0 1px 1px;
+}
+.lobby-frame-corner--br {
+  bottom: 0; right: 0;
+  border-width: 0 1px 1px 0;
+}
+
+/* ─── Centralni blok ─── */
+.lobby-center {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.lobby-notice {
+  letter-spacing: 0.35em;
+}
+
+.lobby-title {
+  font-family: var(--font-heading);
+  font-size: clamp(52px, 9vw, 120px);
+  font-weight: 200;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dark);
+  line-height: 1.05;
+}
+
+/* ─── Dekorativni divider ─── */
+.lobby-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 200px;
+}
+.lobby-divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+.lobby-divider-diamond {
+  font-size: 6px;
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+/* ─── Tagline ─── */
+.lobby-tagline {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(15px, 1.5vw, 19px);
+  color: var(--dark-2);
+  opacity: 0.7;
+  line-height: 1.8;
+}
+
+/* ─── CTA gumbi ─── */
+.lobby-cta {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-top: 8px;
+}
+.lobby-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 32px;
+  background: var(--dark);
+  color: var(--cream);
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  transition: background var(--transition), color var(--transition);
+}
+.lobby-btn:hover {
+  background: var(--burgundy);
+}
+.lobby-btn-arrow {
+  transition: transform 0.25s ease;
+}
+.lobby-btn:hover .lobby-btn-arrow {
+  transform: translateX(4px);
+}
+.lobby-btn-secondary {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--dark);
+  opacity: 0.45;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: opacity var(--transition), border-color var(--transition);
+}
+.lobby-btn-secondary:hover {
+  opacity: 1;
+  border-color: var(--gold);
+}
+
+/* ─── Donji info red ─── */
+.lobby-bottom {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  white-space: nowrap;
+}
+.lobby-bottom-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+/* ─── Scroll hint ─── */
+.lobby-scroll-hint {
+  position: absolute;
+  bottom: 44px;
+  right: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.lobby-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, var(--gold));
+  opacity: 0.5;
+  animation: scrollPulse 2s ease infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
+  50%       { opacity: 0.7; transform: scaleY(1); }
+}
+
+/* ─── Lobby responsive ─── */
+@media (max-width: 768px) {
+  .lobby { padding: 100px 24px 80px; }
+  .lobby-frame--visible { inset: 10%; }
+  .lobby-cta { flex-direction: column; gap: 20px; }
+  .lobby-bottom { display: none; }
+  .lobby-scroll-hint { right: 24px; }
+}
+@media (max-width: 480px) {
+  .lobby-frame--visible { inset: 6%; }
+}
