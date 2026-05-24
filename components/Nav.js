@@ -6,10 +6,12 @@ export default function Nav() {
   const router = useRouter()
   const [menuOpen, setMenuOpen] = useState(false)
 
+  // All navigable pages — used for mobile menu and the film counter
   const links = [
     { href: '/',        label: 'Home' },
     { href: '/work',    label: 'Work' },
     { href: '/about',   label: 'About' },
+    { href: '/now',     label: 'Now' },
     { href: '/contact', label: 'Contact' },
   ]
 
@@ -37,16 +39,24 @@ export default function Nav() {
 
         <div className="nav-right">
           <Link
+            href="/now"
+            className={router.pathname === '/now' ? 'active' : ''}
+          >
+            Now
+          </Link>
+          <Link
             href="/contact"
             className={router.pathname === '/contact' ? 'active' : ''}
           >
             Contact
           </Link>
-          {/* Film counter — Anderson detalj */}
+          {/* Film counter — Anderson signature detail */}
           <span className="nav-counter mono">
             {String(
-              links.findIndex(l => l.href === router.pathname) + 1 || 1
-            ).padStart(2, '0')} / {String(links.length).padStart(2, '0')}
+              links.findIndex((l) => l.href === router.pathname) + 1 || 1
+            ).padStart(2, '0')}{' '}
+            /{' '}
+            {String(links.length).padStart(2, '0')}
           </span>
         </div>
 
@@ -55,7 +65,9 @@ export default function Nav() {
           onClick={() => setMenuOpen(true)}
           aria-label="Open menu"
         >
-          <span /><span /><span />
+          <span />
+          <span />
+          <span />
         </button>
       </nav>
 
@@ -68,7 +80,7 @@ export default function Nav() {
             ✕
           </button>
           <div className="mobile-menu-links">
-            {links.map(link => (
+            {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
