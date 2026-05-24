@@ -820,3 +820,254 @@ footer {
   .work-page { padding: 120px 24px 60px; }
   .work-header { margin-bottom: 48px; }
 }
+
+/* ════════════════════════════════
+   ABOUT — THE DOSSIER
+   ════════════════════════════════ */
+
+.about-page {
+  min-height: 100vh;
+  padding: 140px 60px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ─── Page header ─── */
+.dossier-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+.dossier-title {
+  font-size: clamp(36px, 5vw, 64px);
+  margin-top: 16px;
+}
+
+/* ─── Glavni grid ─── */
+.dossier-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 80px;
+}
+
+/* ─── Lijevo ─── */
+.dossier-left {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: sticky;
+  top: 100px;
+}
+
+/* Fotografija */
+.dossier-photo {
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.dossier-photo img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+  filter: sepia(0.15) contrast(1.05);
+}
+.dossier-photo-placeholder {
+  aspect-ratio: 3/4;
+  background: var(--rose);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+}
+.dossier-photo-label {
+  padding: 10px 16px;
+  border-top: 1px solid var(--border);
+  opacity: 0.5;
+}
+
+/* ID card */
+.dossier-id-card {
+  border: 1px solid var(--border);
+  padding: 20px;
+}
+.dossier-id-title {
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+.dossier-id-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dossier-id-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.dossier-id-key {
+  white-space: nowrap;
+  opacity: 0.45;
+  flex-shrink: 0;
+}
+.dossier-id-dots {
+  flex: 1;
+  border-bottom: 1px dotted var(--border-dark);
+  margin: 0 6px 3px;
+  min-width: 16px;
+}
+.dossier-id-value {
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-size: 12px;
+}
+.dossier-id-value[data-available="true"] {
+  color: var(--burgundy);
+}
+.dossier-id-value[data-available="false"] {
+  color: var(--muted);
+}
+
+/* ─── Desno ─── */
+.dossier-right {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/* Bio */
+.dossier-bio-para {
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.85;
+  opacity: 0.75;
+  margin-bottom: 16px;
+}
+
+/* Skills */
+.dossier-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  border: 1px solid var(--border);
+  padding: 24px;
+}
+.dossier-skill-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dossier-skill-category {
+  opacity: 0.45;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.dossier-skill-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.dossier-skill-item {
+  font-size: 12px;
+  opacity: 0.7;
+  padding: 2px 0;
+}
+.dossier-skill-item::before {
+  content: '— ';
+  opacity: 0.4;
+}
+
+/* ─── Stats ─── */
+.dossier-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 48px 40px;
+  margin-bottom: 64px;
+}
+.dossier-stat {
+  flex: 1;
+  text-align: center;
+  padding: 0 24px;
+}
+.dossier-stat-value {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 200;
+  letter-spacing: 0.1em;
+  color: var(--dark);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.dossier-stat-label {
+  opacity: 0.4;
+}
+.dossier-stat-divider {
+  width: 1px;
+  height: 48px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+/* ─── Citat ─── */
+.dossier-quote {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+.dossier-quote-inner {
+  position: relative;
+  padding: 40px;
+  border: 1px solid var(--border);
+}
+.dossier-quote-mark {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-body);
+  font-size: 60px;
+  color: var(--gold);
+  opacity: 0.4;
+  line-height: 1;
+  background: var(--cream);
+  padding: 0 12px;
+}
+.dossier-quote-text {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.8;
+  opacity: 0.75;
+  margin-bottom: 20px;
+}
+.dossier-quote-attr {
+  opacity: 0.4;
+}
+
+/* ─── About responsive ─── */
+@media (max-width: 1024px) {
+  .dossier-grid {
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .about-page { padding: 120px 24px 60px; }
+  .dossier-grid {
+    grid-template-columns: 1fr;
+  }
+  .dossier-left { position: static; }
+  .dossier-photo-placeholder { aspect-ratio: 4/3; }
+  .dossier-stats {
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 36px 20px;
+  }
+  .dossier-stat { flex: 0 0 calc(50% - 16px); }
+  .dossier-stat-divider { display: none; }
+  .dossier-skills-grid { grid-template-columns: 1fr; }
+  .dossier-quote-inner { padding: 32px 24px; }
+}
