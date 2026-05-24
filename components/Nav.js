@@ -6,11 +6,11 @@ export default function Nav() {
   const router = useRouter()
   const [menuOpen, setMenuOpen] = useState(false)
 
-  // All navigable pages — used for mobile menu and the film counter
   const links = [
     { href: '/',        label: 'Home' },
     { href: '/work',    label: 'Work' },
     { href: '/about',   label: 'About' },
+    { href: '/uses',    label: 'Uses' },
     { href: '/now',     label: 'Now' },
     { href: '/contact', label: 'Contact' },
   ]
@@ -30,6 +30,12 @@ export default function Nav() {
             className={router.pathname === '/about' ? 'active' : ''}
           >
             About
+          </Link>
+          <Link
+            href="/uses"
+            className={router.pathname === '/uses' ? 'active' : ''}
+          >
+            Uses
           </Link>
         </div>
 
