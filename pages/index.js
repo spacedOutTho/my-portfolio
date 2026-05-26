@@ -12,21 +12,18 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>[Tvoje Ime] — Game Developer</title>
-        <meta name="description" content="Game developer based in Rijeka, Croatia. Crafting interactive experiences with precision and style." />
+        <title>Tin Smajlagić — Game Developer & Digital Marketing Specialist</title>
+        <meta name="description" content="Game developer and digital marketing specialist based in Zagreb, Croatia. Eight years shipping games and brand campaigns." />
       </Head>
 
       <main className="lobby">
 
-        {/* Gornji dekorativni red — Anderson uvijek ima labele */}
         <div className="lobby-top-label label sr">
-          Est. {new Date().getFullYear()} · Rijeka, Croatia
+          Est. 2016 · Zagreb, Croatia
         </div>
 
-        {/* Centralni blok */}
         <div className="lobby-center">
 
-          {/* Dekorativni okvir oko naslova */}
           <div className={`lobby-frame ${mounted ? 'lobby-frame--visible' : ''}`}>
             <span className="lobby-frame-corner lobby-frame-corner--tl" />
             <span className="lobby-frame-corner lobby-frame-corner--tr" />
@@ -35,11 +32,11 @@ export default function Home() {
           </div>
 
           <p className="lobby-notice label sr" style={{ '--delay': '0.1s' }}>
-            Portfolio · Game Development
+            Game Development · Digital Marketing
           </p>
 
           <h1 className="lobby-title sr" style={{ '--delay': '0.2s' }}>
-            [Tvoje<br />Ime]
+            Tin<br />Smajlagić
           </h1>
 
           <div className="lobby-divider sr" style={{ '--delay': '0.3s' }}>
@@ -49,8 +46,8 @@ export default function Home() {
           </div>
 
           <p className="lobby-tagline sr" style={{ '--delay': '0.4s' }}>
-            Crafting interactive experiences<br />
-            with precision and style.
+            Six games shipped solo. Eight years in studios.<br />
+            One person who does both.
           </p>
 
           <div className="lobby-cta sr" style={{ '--delay': '0.55s' }}>
@@ -65,14 +62,12 @@ export default function Home() {
 
         </div>
 
-        {/* Donji dekorativni red */}
         <div className="lobby-bottom sr" style={{ '--delay': '0.6s' }}>
           <span className="label">Available for projects</span>
           <span className="lobby-bottom-dot" />
           <span className="label">Open to collaboration</span>
         </div>
 
-        {/* Vertikalni scroll hint */}
         <div className="lobby-scroll-hint sr" style={{ '--delay': '0.8s' }}>
           <span className="lobby-scroll-line" />
           <span className="label">Scroll</span>

@@ -1,29 +1,28 @@
 import Head from 'next/head'
 
-// ─── Zamijeni s pravim podacima ───
 const data = {
-  name: '[Tvoje Ime]',
-  role: 'Game Developer',
-  location: 'Rijeka, Croatia',
+  name: 'Tin Smajlagić',
+  role: 'Game Developer & Digital Marketing Specialist',
+  location: 'Zagreb, Croatia',
   available: true,
   bio: [
-    'A short paragraph about who you are. Keep it personal and direct — not a CV, more like how you would introduce yourself at a conference. One or two sentences.',
-    'What drives you as a developer. What kind of games or experiences do you want to create. What makes your work different.',
-    'Anything else worth knowing. Background, side interests, where you are headed.',
+    'Eight years split between game studios and marketing departments taught me that the hardest part of any project is the same: figuring out what it actually needs to do, and for whom. I have written game design documents that got approved by Epic Games, and employer branding copy that defined how a thousand-person company talks about itself.',
+    'On the development side I work primarily in Godot 4 — six solo titles shipped across Itch.io, Steam, and Google Play, all designed, coded, and scored in Ableton Live by one person. I find the constraint clarifying.',
+    'Currently studying Software Engineering at Algebra University College, building tools in Python and Next.js on the side, and looking for a team that actually ships things.',
   ],
   stats: [
-    { value: '3+',  label: 'Years developing' },
-    { value: '10+', label: 'Projects shipped' },
-    { value: '2',   label: 'Languages spoken' },
-    { value: '1',   label: 'Cup of coffee / day' },
+    { value: '8+', label: 'Years in the industry' },
+    { value: '6',  label: 'Solo titles shipped' },
+    { value: '2',  label: 'Major storefronts' },
+    { value: '1',  label: 'Cup of coffee / day' },
   ],
   skills: [
-    { category: 'Game Engines',  items: ['Unity', 'Godot'] },
-    { category: 'Languages',     items: ['C#', 'GDScript', 'JavaScript'] },
-    { category: 'Tools',         items: ['Blender', 'Photoshop', 'Git'] },
-    { category: 'Web',           items: ['Next.js', 'React', 'Supabase'] },
+    { category: 'Game Development', items: ['Godot 4', 'Unreal Engine 4', 'GDScript', 'C#'] },
+    { category: 'Art & Audio',       items: ['Aseprite', 'Krita', 'Ableton Live 12', 'GIMP'] },
+    { category: 'Web & Tools',       items: ['Next.js', 'Python', 'HTML5', 'Android'] },
+    { category: 'Marketing',         items: ['Content Strategy', 'Copywriting', 'Employer Branding', 'Analytics'] },
   ],
-  // Zamijeni s pravom putanjom kad dodaš sliku u /public
+  // Add your photo: put the file in /public/photo.jpg and change null to '/photo.jpg'
   photo: null,
 }
 
@@ -31,16 +30,15 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About — {data.name}</title>
+        <title>About — Tin Smajlagić</title>
         <meta
           name="description"
-          content={`${data.role} based in ${data.location}.`}
+          content="Game developer and digital marketing specialist based in Zagreb, Croatia."
         />
       </Head>
 
       <main className="about-page">
 
-        {/* ─── Page header ─── */}
         <div className="dossier-header">
           <p className="label sr">Classified Document</p>
           <h1 className="dossier-title sr" style={{ '--delay': '0.1s' }}>
@@ -52,13 +50,10 @@ export default function About() {
           />
         </div>
 
-        {/* ─── Dva stupca ─── */}
         <div className="dossier-grid">
 
-          {/* Lijevo — fotografija + identification card */}
           <div className="dossier-left">
 
-            {/* Fotografija */}
             <div className="dossier-photo sr">
               {data.photo ? (
                 <img src={data.photo} alt={data.name} />
@@ -72,7 +67,6 @@ export default function About() {
               </p>
             </div>
 
-            {/* Identification card — dots između labela i vrijednosti */}
             <div className="dossier-id-card sr" style={{ '--delay': '0.1s' }}>
               <p className="dossier-id-title label">Identification</p>
               <div className="dossier-id-rows">
@@ -106,10 +100,8 @@ export default function About() {
 
           </div>
 
-          {/* Desno — bio + skills */}
           <div className="dossier-right">
 
-            {/* Bio */}
             <div className="dossier-bio">
               <p className="label sr" style={{ marginBottom: '20px' }}>
                 Background
@@ -125,7 +117,6 @@ export default function About() {
               ))}
             </div>
 
-            {/* Skills — equipment manifest */}
             <div className="dossier-skills sr" style={{ '--delay': '0.2s' }}>
               <p className="label" style={{ marginBottom: '20px' }}>
                 Equipment
@@ -151,7 +142,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* ─── Stats red ─── */}
         <div className="dossier-stats sr" style={{ '--delay': '0.1s' }}>
           {data.stats.map((stat, i) => (
             <>
@@ -166,16 +156,15 @@ export default function About() {
           ))}
         </div>
 
-        {/* ─── Citat ─── */}
         <div className="dossier-quote sr">
           <div className="dossier-quote-inner">
             <span className="dossier-quote-mark">"</span>
             <p className="dossier-quote-text">
-              I believe the best games are the ones that make you feel
-              something you didn't expect to feel.
+              The best games are the ones that make you feel something
+              you didn't know you needed to feel.
             </p>
             <span className="dossier-quote-attr label">
-              — [Tvoje Ime]
+              — Tin Smajlagić
             </span>
           </div>
         </div>

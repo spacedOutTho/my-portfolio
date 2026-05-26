@@ -4,7 +4,8 @@ import { useState } from 'react'
 const purposeOptions = [
   'Game development project',
   'Web development project',
-  'Collaboration',
+  'Game design consultation',
+  'Marketing / content collaboration',
   'Job opportunity',
   'Just saying hello',
 ]
@@ -17,7 +18,8 @@ export default function Contact() {
     date: '',
     message: '',
   })
-  const [status, setStatus] = useState('idle') // idle | loading | success | error
+  const [cardNumber] = useState(() => String(Math.floor(Math.random() * 9000) + 1000))
+  const [status, setStatus] = useState('idle')
   const [errorMsg, setErrorMsg] = useState('')
 
   function handleChange(e) {
@@ -48,13 +50,15 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>Contact — [Tvoje Ime]</title>
-        <meta name="description" content="Get in touch. Available for game development projects, web work, and collaboration." />
+        <title>Contact — Tin Smajlagić</title>
+        <meta
+          name="description"
+          content="Get in touch. Available for game development, web work, and marketing collaboration."
+        />
       </Head>
 
       <main className="contact-page">
 
-        {/* ─── Header ─── */}
         <div className="reception-header">
           <p className="label sr">Open for business</p>
           <h1 className="reception-title sr" style={{ '--delay': '0.1s' }}>
@@ -66,19 +70,15 @@ export default function Contact() {
           />
         </div>
 
-        {/* ─── Dva stupca ─── */}
         <div className="reception-grid">
 
-          {/* Lijevo — info */}
           <div className="reception-info sr">
 
             <div className="reception-info-block">
-              <p className="label" style={{ marginBottom: '16px' }}>
-                Concierge
-              </p>
-              <p className="reception-info-name">[Tvoje Ime]</p>
+              <p className="label" style={{ marginBottom: '16px' }}>Concierge</p>
+              <p className="reception-info-name">Tin Smajlagić</p>
               <p className="reception-info-role label">
-                Game &amp; Web Developer
+                Game Developer &amp; Digital Marketing Specialist
               </p>
             </div>
 
@@ -86,30 +86,40 @@ export default function Contact() {
               <div className="reception-contact-item">
                 <span className="label">Email</span>
                 <a
-                  href="mailto:tvoj@email.com"
+                  href="mailto:tinsmajlagic1@gmail.com"
                   className="reception-contact-value"
                   data-hover
                 >
-                  tvoj@email.com
+                  tinsmajlagic1@gmail.com
                 </a>
               </div>
               <div className="reception-contact-item">
-                <span className="label">GitHub</span>
+                <span className="label">LinkedIn</span>
                 <a
-                  href="https://github.com/tvoje-korisnicko-ime"
+                  href="https://linkedin.com/in/tin-smajlagic"
                   target="_blank"
                   rel="noreferrer"
                   className="reception-contact-value"
                   data-hover
                 >
-                  github.com/[ime]
+                  linkedin.com/in/tin-smajlagic
+                </a>
+              </div>
+              <div className="reception-contact-item">
+                <span className="label">Itch.io</span>
+                <a
+                  href="https://shady-bloke.itch.io"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="reception-contact-value"
+                  data-hover
+                >
+                  shady-bloke.itch.io
                 </a>
               </div>
               <div className="reception-contact-item">
                 <span className="label">Location</span>
-                <span className="reception-contact-value">
-                  Rijeka, Croatia
-                </span>
+                <span className="reception-contact-value">Zagreb, Croatia</span>
               </div>
               <div className="reception-contact-item">
                 <span className="label">Status</span>
@@ -119,23 +129,18 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Dekorativna napomena */}
             <div className="reception-note">
-              <p className="mono">
-                // Response time: usually within 24h
-              </p>
+              <p className="mono">// Response time: usually within 24h</p>
             </div>
 
           </div>
 
-          {/* Desno — forma */}
           <div className="reception-form-wrap sr" style={{ '--delay': '0.1s' }}>
 
-            {/* Naslov kartice */}
             <div className="registration-card-header">
               <span className="label">Guest Registration Card</span>
               <span className="label" style={{ opacity: 0.3 }}>
-                No. {String(Math.floor(Math.random() * 9000) + 1000)}
+                No. {cardNumber}
               </span>
             </div>
 
@@ -143,47 +148,31 @@ export default function Contact() {
 
               <div className="rform-row">
                 <div className="rform-group">
-                  <label htmlFor="name" className="rform-label label">
-                    Guest Name *
-                  </label>
+                  <label htmlFor="name" className="rform-label label">Guest Name *</label>
                   <input
-                    id="name"
-                    name="name"
-                    type="text"
+                    id="name" name="name" type="text"
                     placeholder="Your name"
-                    value={form.name}
-                    onChange={handleChange}
-                    required
-                    className="rform-input"
+                    value={form.name} onChange={handleChange}
+                    required className="rform-input"
                   />
                 </div>
                 <div className="rform-group">
-                  <label htmlFor="email" className="rform-label label">
-                    Email Address *
-                  </label>
+                  <label htmlFor="email" className="rform-label label">Email Address *</label>
                   <input
-                    id="email"
-                    name="email"
-                    type="email"
+                    id="email" name="email" type="email"
                     placeholder="your@email.com"
-                    value={form.email}
-                    onChange={handleChange}
-                    required
-                    className="rform-input"
+                    value={form.email} onChange={handleChange}
+                    required className="rform-input"
                   />
                 </div>
               </div>
 
               <div className="rform-row">
                 <div className="rform-group">
-                  <label htmlFor="type" className="rform-label label">
-                    Purpose of Visit
-                  </label>
+                  <label htmlFor="type" className="rform-label label">Purpose of Visit</label>
                   <select
-                    id="type"
-                    name="type"
-                    value={form.type}
-                    onChange={handleChange}
+                    id="type" name="type"
+                    value={form.type} onChange={handleChange}
                     className="rform-input rform-select"
                   >
                     <option value="">Select one...</option>
@@ -193,38 +182,27 @@ export default function Contact() {
                   </select>
                 </div>
                 <div className="rform-group">
-                  <label htmlFor="date" className="rform-label label">
-                    Date of Arrival
-                  </label>
+                  <label htmlFor="date" className="rform-label label">Date of Arrival</label>
                   <input
-                    id="date"
-                    name="date"
-                    type="text"
+                    id="date" name="date" type="text"
                     placeholder="e.g. June 2026"
-                    value={form.date}
-                    onChange={handleChange}
+                    value={form.date} onChange={handleChange}
                     className="rform-input"
                   />
                 </div>
               </div>
 
               <div className="rform-group">
-                <label htmlFor="message" className="rform-label label">
-                  Special Requests *
-                </label>
+                <label htmlFor="message" className="rform-label label">Special Requests *</label>
                 <textarea
-                  id="message"
-                  name="message"
+                  id="message" name="message"
                   placeholder="Tell me about your project..."
                   rows={5}
-                  value={form.message}
-                  onChange={handleChange}
-                  required
-                  className="rform-input rform-textarea"
+                  value={form.message} onChange={handleChange}
+                  required className="rform-input rform-textarea"
                 />
               </div>
 
-              {/* Submit */}
               <div className="rform-footer">
                 <button
                   type="submit"
@@ -232,16 +210,14 @@ export default function Contact() {
                   disabled={status === 'loading'}
                   data-hover
                 >
-                  {status === 'loading'
-                    ? 'Processing...'
-                    : 'Confirm Reservation'}
+                  {status === 'loading' ? 'Processing...' : 'Confirm Reservation'}
                 </button>
 
                 {status === 'success' && (
                   <div className="rform-success">
                     <span className="rform-stamp">✓ Received</span>
                     <span className="label">
-                      Your message has been received. I&apos;ll be in touch.
+                      Your message has been received. I&apos;ll be in touch within 24h.
                     </span>
                   </div>
                 )}

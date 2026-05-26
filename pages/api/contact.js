@@ -56,7 +56,7 @@ export default async function handler(req, res) {
           </table>
 
           <p style="margin-top: 40px; font-size: 10px; opacity: 0.35; letter-spacing: 2px; text-transform: uppercase; border-top: 1px solid #D4C4B4; padding-top: 20px;">
-            [Tvoje Ime] · Portfolio · ${new Date().getFullYear()}
+            Tin Smajlagić · Portfolio · ${new Date().getFullYear()}
           </p>
         </div>
       `

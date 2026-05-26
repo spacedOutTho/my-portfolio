@@ -1,98 +1,137 @@
 import Head from 'next/head'
-import Link from 'next/link'
 
-// ─── Split projects into chapters — this solves the multidisciplinary problem ───
-// Each chapter gets its own Roman numeral, title, and colour accent.
-// Keep to 5–8 total projects across all chapters (research: quality > quantity).
+// ─── YOUR REAL PROJECTS ───────────────────────────────────────────────
+// Two things still need your input (marked with TODO):
+//   1. The titles of your solo Itch.io games — add them as separate projects
+//      or keep the collection card as-is
+//   2. Screenshots/GIFs — drop them in /public/ and replace the color values
+// ─────────────────────────────────────────────────────────────────────
 
 const chapters = [
   {
     numeral: 'I',
-    title: 'Game Development',
-    years: '2023 — Present',
-    description: 'Original games, prototypes, and interactive experiences.',
+    title: 'Solo Game Development',
+    years: '2024 — Present',
+    description: 'Six titles shipped independently — design, code, art, and audio all by one person.',
     projects: [
       {
         id: '01',
-        title: 'Project Codename Alpha',
-        category: 'Game — Solo',
-        year: '2026',
-        role: 'Solo developer',
-        engine: 'Godot',
-        duration: '6 months',
-        team: '1 person',
-        status: 'Completed',
-        description:
-          'A short description of what this game is about. The feel, the mechanics, the world. Keep it to two or three sentences max.',
-        tech: ['Godot', 'GDScript', 'Blender'],
-        color: '#E8C4B8',
-        url: null,
-      },
-      {
-        id: '02',
-        title: 'Project Codename Beta',
+        // TODO: replace with your actual Steam game title
+        title: 'Discarding Death',
         category: 'Game — Solo',
         year: '2025',
         role: 'Solo developer',
-        engine: 'Unity',
-        duration: '4 months',
+        engine: 'Godot 4',
+        duration: 'TBD',
         team: '1 person',
-        status: 'In Progress',
+        status: 'Completed',
         description:
-          'Another project description. What problem did it solve, what was interesting about building it, what makes it worth showing.',
-        tech: ['Unity', 'C#', 'Aseprite'],
+          'TODO: 2–3 sentences about this game. What is the mechanic, what is the feel, why is it worth playing.',
+        tech: ['Godot 4', 'GDScript', 'Aseprite', 'Ableton Live'],
+        color: '#E8C4B8',
+        url: 'https://store.steampowered.com/app/3600330',
+      },
+      {
+        id: '02',
+        title: 'Itch.io Collection',
+        category: 'Games — Solo',
+        year: '2024 – Present',
+        role: 'Solo developer',
+        engine: 'Godot 4 / HTML5',
+        duration: 'Ongoing',
+        team: '1 person',
+        status: 'Ongoing',
+        description:
+          'Six games published on Itch.io across web, Android, and desktop. Each one a self-contained experiment — mechanics, narrative, and audio all designed and built independently.',
+        tech: ['Godot 4', 'HTML5', 'Android', 'GDScript'],
         color: '#D4C4B4',
-        url: null,
+        url: 'https://shady-bloke.itch.io',
       },
     ],
   },
   {
     numeral: 'II',
-    title: 'Web Development',
-    years: '2024 — Present',
-    description: 'Custom sites, web apps, and digital tools for real clients.',
+    title: 'Professional Game Design',
+    years: '2016 — 2021',
+    description: 'Studio work — shipped titles, Epic Games presentations, and five years of design documentation.',
     projects: [
       {
         id: '03',
+        title: 'Primordials: Battle of Gods',
+        category: 'Game — Studio',
+        year: '2021',
+        role: 'Lead Game Designer',
+        engine: 'Custom',
+        duration: '2.5 years',
+        team: 'Wiregames d.o.o.',
+        status: 'Completed',
+        description:
+          'Led comprehensive game design for a title shipped on both Steam and the Epic Games Store. Wrote and presented the full game design document to Epic Games — approved. Responsible for all mechanics, systems design, and market research.',
+        tech: ['Game Design', 'Systems Design', 'UE4', 'Steam', 'Epic Games Store'],
+        color: '#C9A84C',
+        url: 'https://store.steampowered.com/app/1421200/Primordials_Battle_of_Gods/',
+      },
+    ],
+  },
+  {
+    numeral: 'III',
+    title: 'Web & Tools',
+    years: '2024 — Present',
+    description: 'Custom web projects and developer tools built for real use cases.',
+    projects: [
+      {
+        id: '04',
+        title: 'Numismatic Search Aggregator',
+        category: 'Tool — Python / Flask',
+        year: '2025',
+        role: 'Solo developer',
+        engine: 'Python / Flask',
+        duration: 'Ongoing',
+        team: '1 person',
+        status: 'In Progress',
+        description:
+          'A federated search engine that queries 10 Croatian and international numismatic databases simultaneously — Hrčak, CroRIS, NSK, Europeana, Gallica, and others. Uses ThreadPoolExecutor for parallel requests, Selenium for JavaScript-rendered sources, and a unified JSON API for the frontend.',
+        tech: ['Python', 'Flask', 'Selenium', 'BeautifulSoup', 'REST APIs'],
+        color: '#B8A898',
+        url: null,
+      },
+      {
+        id: '05',
         title: 'Le Café Studio',
         category: 'Web — Client',
         year: '2026',
         role: 'Full-stack developer',
         engine: 'Next.js',
         duration: '3 months',
-        team: '1 developer + 1 designer',
+        team: '1 developer',
         status: 'Completed',
         description:
-          'Custom Next.js website with CMS for a wedding photographer. Rebuilt from WordPress with Supabase, Vercel, and premium UI/UX details.',
-        tech: ['Next.js', 'Supabase', 'Vercel'],
-        color: '#C9A84C',
+          'Custom Next.js website for a wedding photographer. Rebuilt from WordPress with Supabase for media management and Vercel for deployment. Focus on performance, image quality, and a premium feel that matched the photographer\'s brand.',
+        tech: ['Next.js', 'Supabase', 'Vercel', 'CSS'],
+        color: '#E0C878',
         url: 'https://le-cafe-studio.vercel.app',
       },
     ],
   },
 ]
 
-// Flatten for the page counter
 const totalProjects = chapters.reduce((acc, ch) => acc + ch.projects.length, 0)
 
 export default function Work() {
   return (
     <>
       <Head>
-        <title>Work — [Tvoje Ime]</title>
+        <title>Work — Tin Smajlagić</title>
         <meta
           name="description"
-          content="Selected works in game development and web development."
+          content="Selected works in game development, game design, and web development."
         />
       </Head>
 
       <main className="work-page">
 
-        {/* ─── Header ─── */}
         <div className="work-header">
-          <p className="label sr">
-            {totalProjects} Selected Works
-          </p>
+          <p className="label sr">{totalProjects} Selected Works</p>
           <h1 className="work-title sr" style={{ '--delay': '0.1s' }}>
             The Exhibition
           </h1>
@@ -102,12 +141,10 @@ export default function Work() {
           />
         </div>
 
-        {/* ─── Chapters ─── */}
         {chapters.map((chapter, ci) => (
           <section key={chapter.numeral} className="work-chapter">
 
-            {/* Chapter title card — Anderson signature move */}
-            <div className={`chapter-card sr`} style={{ '--delay': `${ci * 0.05}s` }}>
+            <div className="chapter-card sr" style={{ '--delay': `${ci * 0.05}s` }}>
               <div className="chapter-card-inner">
                 <span className="chapter-numeral label">Chapter {chapter.numeral}</span>
                 <h2 className="chapter-title">{chapter.title}</h2>
@@ -116,7 +153,6 @@ export default function Work() {
               </div>
             </div>
 
-            {/* Projects in this chapter */}
             <div className="work-grid">
               {chapter.projects.map((project, pi) => (
                 <article
@@ -124,28 +160,17 @@ export default function Work() {
                   className="exhibit sr"
                   style={{ '--delay': `${pi * 0.1}s` }}
                 >
-                  {/* Top meta row */}
                   <div className="exhibit-meta">
                     <span className="exhibit-id label">Exhibit {project.id}</span>
-                    <span
-                      className="exhibit-status label"
-                      data-status={project.status}
-                    >
+                    <span className="exhibit-status label" data-status={project.status}>
                       {project.status}
                     </span>
                   </div>
 
-                  {/* Image / placeholder */}
-                  <div
-                    className="exhibit-image"
-                    style={{ background: project.color }}
-                  >
-                    <span className="exhibit-image-label label">
-                      {project.category}
-                    </span>
+                  <div className="exhibit-image" style={{ background: project.color }}>
+                    <span className="exhibit-image-label label">{project.category}</span>
                   </div>
 
-                  {/* Content */}
                   <div className="exhibit-content">
                     <div className="exhibit-header">
                       <h3 className="exhibit-title">{project.title}</h3>
@@ -154,7 +179,6 @@ export default function Work() {
 
                     <p className="exhibit-description">{project.description}</p>
 
-                    {/* 7-field stat block — per playbook principle #3 */}
                     <div className="exhibit-stat-block">
                       <div className="exhibit-stat-row">
                         <span className="exhibit-stat-key label">Role</span>
@@ -178,19 +202,15 @@ export default function Work() {
                       </div>
                     </div>
 
-                    {/* Tech tags */}
                     <div className="exhibit-medium">
                       <span className="label">Medium</span>
                       <div className="exhibit-tags">
                         {project.tech.map((t) => (
-                          <span key={t} className="exhibit-tag">
-                            {t}
-                          </span>
+                          <span key={t} className="exhibit-tag">{t}</span>
                         ))}
                       </div>
                     </div>
 
-                    {/* Footer link */}
                     <div className="exhibit-footer">
                       {project.url ? (
                         <a
@@ -205,7 +225,7 @@ export default function Work() {
                         </a>
                       ) : (
                         <span className="exhibit-link exhibit-link--disabled">
-                          Coming soon
+                          Private project
                         </span>
                       )}
                     </div>
@@ -217,13 +237,9 @@ export default function Work() {
           </section>
         ))}
 
-        {/* ─── Footer note ─── */}
         <div className="work-footer-note sr">
           <div className="rule" style={{ marginBottom: '24px' }} />
-          <p
-            className="label"
-            style={{ textAlign: 'center', opacity: 0.4 }}
-          >
+          <p className="label" style={{ textAlign: 'center', opacity: 0.4 }}>
             More works in progress — updated regularly
           </p>
         </div>
